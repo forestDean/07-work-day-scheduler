@@ -4,8 +4,6 @@
   --forestGreenBox: 1px solid darkolivegreen;
   --tabHeight: 100px;
   --cardHeight: 280px;
-  --skillsHeight: auto;
-  --portraitSize: 200px;
   --forestGreenBox: 1px solid rgb(107, 134, 60);
 
 }
@@ -27,10 +25,10 @@ textarea {
 
 .jumbotron {
   text-align: center;
-  background-color: transparent;
-  color: black;
+  background-color: rgba(85, 107, 47, 0.2);
+  color: var(--forestGreen);
   border-radius: 0;
-  border-bottom: 10px solid black;
+  border-bottom: 10px solid var(--forestGreen);
 }
 
 .description {
