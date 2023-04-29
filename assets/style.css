@@ -29,7 +29,7 @@ textarea {
   background-color: var(--forestGreenLt1);
   color: var(--forestGreen);
   border-radius: 0;
-  border-bottom: 10px solid var(--forestGreen);
+  border-bottom: 6px solid var(--forestGreen);
 }
 
 .display-3 {
@@ -63,11 +63,11 @@ textarea {
 }
 
 .textBlock{
-  background-color: rgba(0, 0, 0, 0.05);
   /* padding: 5px 10px;
   text-align: left; */
   /* border-radius: 15px; */
-  background-color: rgba(0, 0, 0, 0.05);
+  /* background-color: rgba(0, 0, 0, 0.05); */
+  /* border-right: 1px solid var(--forestGreenLt1); */
   line-height: normal;
   max-height: 80px;
   overflow: hidden !important;
@@ -87,7 +87,6 @@ textarea {
   /* position: relative;
   top: 15px; */
   /* text-align: center; */
-  border-left: 1px solid var(--forestGreenLt1);
   /* background-color: transparent;
   background-image: url("../images/saveIcon.png");
   background-repeat: no-repeat; */
