@@ -12,3 +12,7 @@ function clock() {
 };
 // set refresh interval
 setInterval(clock, 1000);
+
+$(function () {
+    $('.time-block').attr('contenteditable', 'true');
+});

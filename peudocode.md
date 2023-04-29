@@ -16,6 +16,8 @@ The app should:
 * Moment.js
 * 
 * install clock with moment.js
-    *   set on 2 lines to prevent 'shake'
+    * set on 2 lines to prevent 'shake'
 * construct schedule table with bootstrap rows
-    *   6am to 11pm
+    * 6am to 11pm - 18 rows
+    * add save icon
+    * style
