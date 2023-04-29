@@ -1,6 +1,7 @@
 :root {
   --page-background: silver;
   --forestGreen: darkolivegreen;
+  --forestGreenLt1: rgba(85, 107, 47, 0.2);
   --forestGreenBox: 1px solid darkolivegreen;
   --tabHeight: 100px;
   --cardHeight: 280px;
@@ -25,32 +26,79 @@ textarea {
 
 .jumbotron {
   text-align: center;
-  background-color: rgba(85, 107, 47, 0.2);
+  background-color: var(--forestGreenLt1);
   color: var(--forestGreen);
   border-radius: 0;
   border-bottom: 10px solid var(--forestGreen);
+}
+
+.display-3 {
+  margin: 0 0 20px;
 }
 
 .description {
   white-space: pre-wrap;
 }
 
-.time-block {
-  text-align: center;
-  border-radius: 15px;
+.container {
+  display: flex; /*added*/
+  flex-direction: column; /*added*/
+  justify-content: space-between;
 }
 
 .row {
-  white-space: pre-wrap;
+  white-space: normal;
   height: 80px;
-  border-top: 1px solid white;
+  margin-top: 10px;
+  /* border-top: 1px solid white; */
+  border: 1px solid var(--forestGreenLt1);
+  border-radius: 15px 5px 5px 15px;
+  /* border-right: 0; */
 }
 
 .hour {
-  background-color: #ffffff;
-  color: #000000;
-  border-top: 1px dashed #000000;
+  text-align: right;
+  padding-right: 30px;
 }
+
+.textBlock{
+  background-color: rgba(0, 0, 0, 0.05);
+  padding: 5px 10px;
+  text-align: left;
+  /* border-radius: 15px; */
+  background-color: rgba(0, 0, 0, 0.05);
+  line-height: normal;
+}
+
+/* .textBlock:hover > *[contenteditable="true"] { */
+.textBlock:hover {
+  background-color: rgba(85, 107, 47, 0.3);
+}
+
+[contenteditable]:focus {
+  outline: 1px solid darkolivegreen;
+}
+
+.reset {
+  position: a;
+  top: 15px;
+  text-align: center;
+  border-left: 1px solid var(--forestGreenLt1);
+  /* background-color: transparent;
+  background-image: url("../images/saveIcon.png");
+  background-repeat: no-repeat; */
+}
+
+.save {
+  position: relative;
+  top: 15px;
+  text-align: center;
+  border-left: 1px solid var(--forestGreenLt1);
+  /* background-color: transparent;
+  background-image: url("../images/saveIcon.png");
+  background-repeat: no-repeat; */
+}
+
 
 .past {
   background-color: #d3d3d3;
