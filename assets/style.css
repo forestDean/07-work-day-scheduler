@@ -47,6 +47,7 @@ textarea {
 }
 
 .row {
+  /* position: relative; */
   white-space: normal;
   height: 80px;
   margin-top: 10px;
@@ -63,11 +64,14 @@ textarea {
 
 .textBlock{
   background-color: rgba(0, 0, 0, 0.05);
-  padding: 5px 10px;
-  text-align: left;
+  /* padding: 5px 10px;
+  text-align: left; */
   /* border-radius: 15px; */
   background-color: rgba(0, 0, 0, 0.05);
   line-height: normal;
+  max-height: 80px;
+  overflow: hidden !important;
+  text-overflow: ellipsis;
 }
 
 /* .textBlock:hover > *[contenteditable="true"] { */
@@ -79,10 +83,10 @@ textarea {
   outline: 1px solid darkolivegreen;
 }
 
-.reset {
-  position: a;
-  top: 15px;
-  text-align: center;
+.clear {
+  /* position: relative;
+  top: 15px; */
+  /* text-align: center; */
   border-left: 1px solid var(--forestGreenLt1);
   /* background-color: transparent;
   background-image: url("../images/saveIcon.png");
@@ -90,9 +94,9 @@ textarea {
 }
 
 .save {
-  position: relative;
-  top: 15px;
-  text-align: center;
+  /* position: relative;
+  top: 15px; */
+  /* text-align: center; */
   border-left: 1px solid var(--forestGreenLt1);
   /* background-color: transparent;
   background-image: url("../images/saveIcon.png");
