@@ -21,5 +21,15 @@ The app should:
     * 6am to 11pm - 18 rows
     * add save icon
     * style
+    * create editable text area
     * limit characters/rows     
     * add event listeners to clear/save button
+* time highlight Moment function
+    * highlight current hour
+    * grey out past hours
+    * style hours pending
+* save function for editable text area
+    * autoSave
+* clear function for editable text area
+* *edit function for editable text area*
+* reset function for the whole scheduler
