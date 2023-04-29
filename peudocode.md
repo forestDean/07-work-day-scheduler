@@ -21,3 +21,5 @@ The app should:
     * 6am to 11pm - 18 rows
     * add save icon
     * style
+    * limit characters/rows     
+    * add event listeners to clear/save button
