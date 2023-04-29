@@ -13,6 +13,7 @@ body {
   font-family: 'Open Sans', sans-serif;
   font-size: 16px;
   line-height: 1;
+  color: var(--forestGreen);
 }
 
 textarea {
@@ -47,11 +48,9 @@ textarea {
 }
 
 .row {
-  /* position: relative; */
   white-space: normal;
   height: 80px;
   margin-top: 10px;
-  /* border-top: 1px solid white; */
   border: 1px solid var(--forestGreenLt1);
   border-radius: 15px 5px 5px 15px;
   /* border-right: 0; */
@@ -63,15 +62,13 @@ textarea {
 }
 
 .textBlock{
-  /* padding: 5px 10px;
-  text-align: left; */
-  /* border-radius: 15px; */
-  /* background-color: rgba(0, 0, 0, 0.05); */
-  /* border-right: 1px solid var(--forestGreenLt1); */
   line-height: normal;
   max-height: 80px;
-  overflow: hidden !important;
-  text-overflow: ellipsis;
+ overflow: hidden !important;
+  display: block;
+  max-height: 4.9em;
+  line-height: 1.4em;
+  /* text-overflow: ellipsis; */
 }
 
 /* .textBlock:hover > *[contenteditable="true"] { */
