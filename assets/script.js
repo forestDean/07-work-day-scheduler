@@ -52,6 +52,21 @@ function test(event) {
     console.log("test: " + event.target);
 
   }
+
+// https://stackoverflow.com/questions/2398947/jquery-how-to-get-to-a-particular-child-of-a-parent
+function saveText(event) {
+console.log("save: " + event.target);
+console.log(this);
+var textID = $(this).parent().attr("id");
+console.log("textID: " + textID);
+var selectText = $(this).parent().children().eq(1).text();
+console.log(selectText);
+
+localStorage.setItem(JSON.stringify(textID),JSON.stringify(selectText));
+
+}
+
+
 // https://stackoverflow.com/questions/2398947/jquery-how-to-get-to-a-particular-child-of-a-parent
 function clear(event) {
 console.log("clear: " + event.target);
@@ -60,6 +75,7 @@ console.log(this);
 //$(this).children().eq(1).text('');
 // var select = $(this).parent().children().eq(1);
 // console.log(select);
+/// Try DELEGATION
 var select = $(this).parent().children().eq(1);
 console.log(select);
 $(this).parent().children().eq(1).text("");
@@ -68,7 +84,7 @@ $(this).parent().children().eq(1).text("");
 
 
 // event listeners
-saveButton.on('click', test);
+saveButton.on('click', saveText);
 clearButton.on('click', clear);
 
 
