@@ -67,6 +67,7 @@ textarea {
   line-height: normal;
   max-height: 78px; /* compensate for auto-scroll */
   overflow: auto !important;
+  z-index: 1;
 }
 
 /* .textBlock:hover > *[contenteditable="true"] { */
@@ -84,6 +85,17 @@ textarea {
 .save {
   border-left: 1px solid var(--forestGreenLt1);
 }
+
+/* .savealert {
+  position: relative;
+  padding-top: 20px;
+  text-align: center;
+  z-index: 2;
+  background-color:inherit;
+  opacity: 1;
+  height: 100%;
+  overflow: hidden;
+} */
 
 .clearicon, .saveicon {
   height: 30px;

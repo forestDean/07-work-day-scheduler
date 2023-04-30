@@ -4,7 +4,7 @@ var idL = $('#id');
 var textBlockL = $('.textBlock');
 var saveButton = $('.save');
 var clearButton = $('.clear');
-var resetButton = $('#');
+//var resetButton = $('#');
 var selectText;
 
 // render localStorage to page
@@ -67,12 +67,20 @@ function saveText(event) {
     //console.log(this);
     var textID = $(this).parent().attr("id");
     console.log("textID: " + textID);
-    var selectText = $(this).parent().children().eq(1).text();
+    var textBlock = $(this).parent().children().eq(1);
+    var selectText = textBlock.text();
     console.log(selectText);
 
     localStorage.setItem(JSON.stringify(textID),JSON.stringify(selectText));
     // SAVED ALERT
-}
+    textBlock.text("SAVED");
+        setTimeout(function(){
+            var blockText = localStorage.getItem(JSON.stringify(textID))
+            textBlock.text(JSON.parse(blockText));
+        }, 1000)
+       
+    };
+
 
 // autoSave every 2 minutes
 function autoSave() {
@@ -84,7 +92,7 @@ function autoSave() {
 
         localStorage.setItem(JSON.stringify(textID),JSON.stringify(selectText));
         console.log("autoSave");
-    }
+    })
 }
 
 
@@ -111,7 +119,7 @@ function reset(event) {
 // event listeners
 saveButton.on('click', saveText);
 clearButton.on('click', clear);
-resetButton.on('click', reset);
+//resetButton.on('click', reset);
 
 
 // set refresh interval
