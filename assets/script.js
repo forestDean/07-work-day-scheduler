@@ -11,8 +11,21 @@ $( document ).ready(function() {
     $(".textBlock").each(function(){
         var textID = $(this).parent().attr("id");
         console.log("textID: " + textID);
-        console.log("localStorage: " + localStorage);
-        // if (localStorage.key == textID) {
+        //console.log("localStorageKey: " + JSON.parse(localStorage.key(1)));
+        var blockText = localStorage.getItem(JSON.stringify(textID));
+        console.log("blockText: " + blockText);
+        if (blockText != null){
+        
+        console.log("OK!");
+        $(this).text(JSON.parse(blockText));
+        }
+    }
+
+
+
+
+
+        // if (localStorage.key(0) === textID) {
         //     console.log("MATCH! " + textID);
         // }
         // check if empty
@@ -22,7 +35,7 @@ $( document ).ready(function() {
 
         //console.log( localStorage.getItem(JSON.parse(selectText)))
         //localStorage.getItem(JSON.parse(selectText));
-    });
+    );
 });
 
 
@@ -103,9 +116,9 @@ function clear(event) {
 
 function reset(event) {
     $(".textBlock").each(function(){
-        $(this).text("");
-        // CLEAR localStorage
+        $(this).text("");       
     });
+    localStorage.clear();
 }
 
 

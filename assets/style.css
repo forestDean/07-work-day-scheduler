@@ -71,7 +71,7 @@ textarea {
 
 /* .textBlock:hover > *[contenteditable="true"] { */
 .textBlock:hover {
-  background-color: rgba(85, 107, 47, 0.3);
+  background-color: rgba(85, 107, 47, 0.2);
 }
 
 [contenteditable]:focus {
