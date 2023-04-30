@@ -6,50 +6,31 @@ var saveButton = $('.save');
 var clearButton = $('.clear');
 var selectText;
 
+// render localStorage to page
 $( document ).ready(function() {
-    console.log( "ready!" );
     $(".textBlock").each(function(){
-        var textID = $(this).parent().attr("id");
-        console.log("textID: " + textID);
-        //console.log("localStorageKey: " + JSON.parse(localStorage.key(1)));
+        var textID = $(this).parent().attr("id");;
         var blockText = localStorage.getItem(JSON.stringify(textID));
-        console.log("blockText: " + blockText);
-        if (blockText != null){
-        
-        console.log("OK!");
+        if (blockText != null) {
         $(this).text(JSON.parse(blockText));
         }
     }
-
-
-
-
-
-        // if (localStorage.key(0) === textID) {
-        //     console.log("MATCH! " + textID);
-        // }
-        // check if empty
-        // if (! $(this).text("Enter notes...")){
-        //     console.log( "get localStorage" );
-        // } ;
-
-        //console.log( localStorage.getItem(JSON.parse(selectText)))
-        //localStorage.getItem(JSON.parse(selectText));
     );
 });
 
 
-// Use Moment.js to format the date and assign to the declared variable.
-// var m = moment();
-// m = moment();
-// var time = m.format('hh:mm:ss');
-// $("#4a").text(time);
-
+// Use Moment.js to format the date
 function clock() {
     var date = moment().format('dddd - Mo MMMM YYYY');
     var time = moment().format('hh:mm:ss a');
     $("#currentDate").text(date);
     $("#currentTime").text(time);
+
+    // Reset the Scheduler at midnight
+    var midnight = moment().format('H');
+    if (midnight === 0) {
+        reset();
+    }
 };
 
 // https://www.tutorialrepublic.com/faq/how-to-loop-through-elements-with-the-same-class-in-jquery.php
@@ -79,12 +60,6 @@ function timeHighlight() {
     };
        
 
-
-function test(event) {
-    console.log("test: " + event.target);
-
-  }
-
 // https://stackoverflow.com/questions/2398947/jquery-how-to-get-to-a-particular-child-of-a-parent
 function saveText(event) {
     console.log("save: " + event.target);
@@ -95,7 +70,6 @@ function saveText(event) {
     console.log(selectText);
 
     localStorage.setItem(JSON.stringify(textID),JSON.stringify(selectText));
-    // render to textBlock
     // SAVED ALERT
 
 }
