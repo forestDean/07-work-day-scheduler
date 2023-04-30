@@ -1,15 +1,11 @@
 :root {
-  --page-background: silver;
   --forestGreen: darkolivegreen;
   --forestGreenLt1: rgba(85, 107, 47, 0.2);
-  --forestGreenBox: 1px solid darkolivegreen;
-  --tabHeight: 100px;
-  --cardHeight: 280px;
-  --forestGreenBox: 1px solid rgb(107, 134, 60);
-
 }
 
-* {box-sizing: border-box;}
+* {
+  box-sizing: border-box;
+}
 
 body {
   font-family: 'Open Sans', sans-serif;
@@ -44,9 +40,9 @@ textarea {
 }
 
 .container {
-  display: flex; /*added*/
-  flex-direction: column; /*added*/
-  justify-content: space-between;
+  /* display: flex;
+  flex-direction: column;
+  justify-content: space-between; */
 }
 
 .row {
@@ -55,7 +51,6 @@ textarea {
   margin-top: 10px;
   border: 1px solid var(--forestGreenLt1);
   border-radius: 15px 5px 5px 15px;
-  /* border-right: 0; */
 }
 
 .hour {
@@ -65,12 +60,11 @@ textarea {
 
 .textBlock{
   line-height: normal;
-  max-height: 78px; /* compensate for auto-scroll */
-  overflow: auto !important;
+  max-height: 78px; /* compensate for border on auto-scroll */
+  overflow: auto;
   z-index: 1;
 }
 
-/* .textBlock:hover > *[contenteditable="true"] { */
 .textBlock:hover {
   background-color: rgba(85, 107, 47, 0.2);
 }
@@ -86,28 +80,16 @@ textarea {
   border-left: 1px solid var(--forestGreenLt1);
 }
 
-/* .savealert {
-  position: relative;
-  padding-top: 20px;
-  text-align: center;
-  z-index: 2;
-  background-color:inherit;
-  opacity: 1;
-  height: 100%;
-  overflow: hidden;
-} */
-
 .clearicon, .saveicon {
   height: 30px;
   width: 30px;
   opacity: 0.8;
 }
 
-.clearicon:hover, .saveicon:hover {
+.clearicon:hover, .saveicon:hover, .refreshicon:hover  {
   opacity: 0.4;;
   transition: all 0.1s ease-in-out;
 }
-
 
 .past {
   background-color: rgba(211, 211, 211, 0.2);
@@ -122,22 +104,46 @@ textarea {
   background-color: rgba(85, 107, 47, 0.1);
 }
 
+.rowreset {
+  white-space: normal;
+  height: 80px;
+  margin-top: 10px;
+  border: 0;
+  border-radius: 0;
+}
+
+.reset {
+  height: 80px;
+  border: 1px solid var(--forestGreenLt1);
+  border-radius: 25px;
+  text-align: right;
+  padding: 20px 29px 0 0;
+  background-color:white !important;
+}
+
+.refreshicon {
+  height: 35px;
+  width: 35px;
+  opacity: 0.8;
+}
+
+
  /* RESPONSIVE MEDIA QUERIES */
 
- /* Extra large devices (large desktops, 1200px and up) */
- @media (max-width: 1200px) { 
-  /* :root {--cardHeight: 300px;} */
- }
- 
- /* Large devices (desktops, 992px and up) */
- @media (max-width: 992px) {
+ /* Small devices (landscape phones, 576px and up) */
+ @media (min-width: 576px) {
  }
 
  /* Medium devices (tablets, 768px and up) */
- @media (max-width: 768px) { 
+ @media (min-width: 768px) { 
+}
+ 
+ /* Large devices (desktops, 992px and up) */
+ @media (min-width: 992px) {
+}
+
+ /* Extra large devices (large desktops, 1200px and up) */
+ @media (min-width: 1200px) { 
  }
 
- /* Small devices (landscape phones, 576px and up) */
- @media (max-width: 576px) {
 
- }

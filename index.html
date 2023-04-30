@@ -30,6 +30,7 @@
       <p id="currentDate" class="lead"></p>
       <p id="currentTime" class="lead"></p>
     </header>
+
     <div class="container">
 
       <!-- ------ TIMEBLOCK ROW ------ -->
@@ -37,12 +38,7 @@
         <div class="hour my-auto col-lg-1">
           6am
         </div>
-        <!-- https://www.w3schools.com/tags/att_global_contenteditable.asp -->
-        <!-- https://www.w3schools.com/jsref/prop_html_contenteditable.asp -->
-        <!-- https://www.w3schools.com/howto/howto_css_contenteditable_border.asp -->
-        <!-- https://github.com/agrinko/jquery-contenteditable -->
-        <!-- https://stackoverflow.com/questions/35302398/how-to-style-contenteditable-true-when-hovered -->
-        <!-- https://stackoverflow.com/questions/73730265/how-to-limit-character-count-on-contenteditible-div-in-vanilla-javascript -->
+ 
         <div class="textBlock text-left py-1 col-lg-9" contenteditable="true">
           Enter notes...
         </div>
@@ -75,7 +71,7 @@
         <div class="hour my-auto col-lg-1">
           8am
         </div>
-        <div class="textBlock text-left py-1 col-lg-9" rows="3"  contenteditable="true">
+        <div class="textBlock text-left py-1 col-lg-9" contenteditable="true">
           <!-- Enter notes... -->
         </div>
         <div class="clear my-auto text-center col-lg-1">
@@ -85,6 +81,17 @@
           <img src="./images/saveIcon.png" alt="save button" class="saveicon">
         </div>
       </div>
+
+      <!-- ------ RESET------ -->
+      <div id="resetButton" class="row rowreset">
+        <div class="reset col-lg-1">
+          <img src="./images/refreshIcon.png" alt="refresh button" class="refreshicon">
+        </div>
+        <div class="col-lg-11">
+          <!-- Enter notes... -->
+        </div>
+      </div>
+      
 
     <!-- end of Container -->
     </div>
