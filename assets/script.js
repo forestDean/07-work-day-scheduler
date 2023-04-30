@@ -2,12 +2,28 @@
 var timeDisplayEl = $('#time-display');
 var idL = $('#id');
 var textBlockL = $('.textBlock');
-
-
 var saveButton = $('.save');
 var clearButton = $('.clear');
+var selectText;
 
+$( document ).ready(function() {
+    console.log( "ready!" );
+    $(".textBlock").each(function(){
+        var textID = $(this).parent().attr("id");
+        console.log("textID: " + textID);
+        console.log("localStorage: " + localStorage);
+        // if (localStorage.key == textID) {
+        //     console.log("MATCH! " + textID);
+        // }
+        // check if empty
+        // if (! $(this).text("Enter notes...")){
+        //     console.log( "get localStorage" );
+        // } ;
 
+        //console.log( localStorage.getItem(JSON.parse(selectText)))
+        //localStorage.getItem(JSON.parse(selectText));
+    });
+});
 
 
 // Use Moment.js to format the date and assign to the declared variable.
@@ -33,14 +49,17 @@ function timeHighlight() {
         $(".row").each(function(){
             // Test if the div id matches hour
             if($(this).attr("id") === hourFocus ){
+                $(this).children().eq(1).addClass("present")
                 //console.log("match");
                // console.log(this);
-                $(this).children().eq(1).css("background", "lightyellow");
+                //$(this).children().eq(1).css("background", "lightyellow");
             } else if ($(this).attr("id") > hourFocus ){
-                $(this).children().eq(1).css("background", "rgba(85, 107, 47, 0.1)");
+                $(this).children().eq(1).addClass("future")
+                //$(this).children().eq(1).css("background", "rgba(85, 107, 47, 0.1)");
             } else {
-                $(this).children().eq(1).css("background", "rgba(211, 211, 211, 0.2)");
-                $(this).children().eq(1).css("color", "rgba(0, 0, 0, 0.3)");
+                $(this).children().eq(1).addClass("past")
+                //$(this).children().eq(1).css("background", "rgba(211, 211, 211, 0.2)");
+                //$(this).children().eq(1).css("color", "rgba(0, 0, 0, 0.3)");
                 $(this).children().eq(1).attr("contenteditable", "false");
             }
         });
@@ -55,42 +74,56 @@ function test(event) {
 
 // https://stackoverflow.com/questions/2398947/jquery-how-to-get-to-a-particular-child-of-a-parent
 function saveText(event) {
-console.log("save: " + event.target);
-console.log(this);
-var textID = $(this).parent().attr("id");
-console.log("textID: " + textID);
-var selectText = $(this).parent().children().eq(1).text();
-console.log(selectText);
+    console.log("save: " + event.target);
+    console.log(this);
+    var textID = $(this).parent().attr("id");
+    console.log("textID: " + textID);
+    var selectText = $(this).parent().children().eq(1).text();
+    console.log(selectText);
 
-localStorage.setItem(JSON.stringify(textID),JSON.stringify(selectText));
+    localStorage.setItem(JSON.stringify(textID),JSON.stringify(selectText));
+    // render to textBlock
+    // SAVED ALERT
 
 }
 
 
 // https://stackoverflow.com/questions/2398947/jquery-how-to-get-to-a-particular-child-of-a-parent
 function clear(event) {
-console.log("clear: " + event.target);
-console.log(this);
-//$(this).children().eq(1).val('');
-//$(this).children().eq(1).text('');
-// var select = $(this).parent().children().eq(1);
-// console.log(select);
-/// Try DELEGATION
-var select = $(this).parent().children().eq(1);
-console.log(select);
-$(this).parent().children().eq(1).text("");
+    console.log("clear: " + event.target);
+    console.log("this: " + this);
+    /// Try DELEGATION
+    var select = $(this).parent().children().eq(1);
+    console.log("select: " + select);
+    $(this).parent().children().eq(1).text("");
+    //$(this).parent().children().eq(1).attr("contenteditable", "true"); //not required ...reverts to false
+    console.log("this: " + this);
+    // CLEAR localStorage
 }
+
+function reset(event) {
+    $(".textBlock").each(function(){
+        $(this).text("");
+        // CLEAR localStorage
+    });
+}
+
+
+
 
 
 
 // event listeners
 saveButton.on('click', saveText);
 clearButton.on('click', clear);
+//resetButton.on('click', reset);
 
 
 // set refresh interval
 setInterval(clock, 1000);
 setInterval(timeHighlight, 1000);
+// AutoSave 2 minutes
+// AutoReset?
 
 
 //example

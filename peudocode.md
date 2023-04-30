@@ -29,7 +29,11 @@ The app should:
     * grey out past hours
     * style hours pending
 * save function for editable text area
+    * reder saved text to textBlock
     * autoSave
+    * savealert
 * clear function for editable text area
 * *edit function for editable text area*
 * reset function for the whole scheduler
+* button transition styles
+* media queries
