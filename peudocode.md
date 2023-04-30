@@ -38,3 +38,4 @@ The app should:
     * autoReset at midnight
 * button transition styles
 * media queries
+* README
