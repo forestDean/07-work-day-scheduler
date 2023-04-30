@@ -83,9 +83,9 @@ function clear(event) {
     var select = $(this).parent().children().eq(1);
     console.log("select: " + select);
     $(this).parent().children().eq(1).text("");
-    //$(this).parent().children().eq(1).attr("contenteditable", "true"); //not required ...reverts to false
     console.log("this: " + this);
-    // CLEAR localStorage
+    var textID = $(this).parent().attr("id");
+    localStorage.removeItem(JSON.stringify(textID));
 }
 
 function reset(event) {
