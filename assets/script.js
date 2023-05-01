@@ -10,7 +10,7 @@ var selectText;
 // render localStorage to page
 $( document ).ready(function() {
     $(".textBlock").each(function(){
-        var textID = $(this).parent().attr("id");;
+        var textID = $(this).parent().attr("id");
         var blockText = localStorage.getItem(JSON.stringify(textID));
         if (blockText != null) {
         $(this).text(JSON.parse(blockText));
@@ -41,15 +41,15 @@ function timeHighlight() {
             // Test if the divId matches hour
             if ($(this).attr("id") != "resetButton"){
                 if($(this).attr("id") === hourFocus ){
-                    $(this).children().eq(1).addClass("present")
+                    $(this).children().eq(1).addClass("present").removeClass("future");
                     // Enter notes... instruction
                     if (!$(this).children().eq(1).val()){
-                        $(this).children().eq(1).text("Enter notes...")
+                        $(this).children().eq(1).text("Enter notes...");
                     }
                 } else if ($(this).attr("id") > hourFocus) {
-                    $(this).children().eq(1).addClass("future")
+                    $(this).children().eq(1).addClass("future").removeClass("present").removeClass("past");
                 } else {
-                    $(this).children().eq(1).addClass("past")
+                    $(this).children().eq(1).addClass("past").removeClass("present").removeClass("future");
                     $(this).children().eq(1).attr("contenteditable", "false");
                     // // Enter notes... clear
                     if ($(this).children().eq(1).text("Enter notes...")){
@@ -74,7 +74,7 @@ function saveText(event) {
     // saved alert
     textBlock.text("SAVED");
         setTimeout(function(){
-            var blockText = localStorage.getItem(JSON.stringify(textID))
+            var blockText = localStorage.getItem(JSON.stringify(textID));
             textBlock.text(JSON.parse(blockText));
         }, 1000)       
     };
