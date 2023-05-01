@@ -102,9 +102,10 @@ textarea {
 .rowreset {
   white-space: normal;
   height: 80px;
-  margin-top: 10px;
+  margin: 10px 0 40px;
   border: 0;
   border-radius: 0;
+  margin-top: 20px;
 }
 
 .reset {
@@ -113,13 +114,15 @@ textarea {
   border-radius: 25px;
   text-align: right;
   background-color:white;
+  margin-left: -15px;
 }
 
 .refreshicon {
   height: 35px;
   width: 35px;
   opacity: 0.8;
-  margin: 20px 35px 0 0;
+  display: block;
+  margin: 20px auto 0;
 }
 
 
@@ -147,13 +150,6 @@ No media query since this is the default in Bootstrap */
     padding-right: 10px;
   }
 
-  .refreshicon {
-    height: 35px;
-    width: 35px;
-    opacity: 0.8;
-    margin: 20px 28px 0 0;
-  }
-
   .row {
     border-radius: 15px;
     height: 200px;
@@ -168,8 +164,6 @@ No media query since this is the default in Bootstrap */
   .textBlock {
     border-top: 1px dotted var(--forestGreenLt1);
     border-bottom: 1px dotted var(--forestGreenLt1);
-    /* flex: auto; */
-    /* height:100px; */
     max-height: 78px; 
   }
 
@@ -189,14 +183,8 @@ No media query since this is the default in Bootstrap */
   .textBlock {
     border: 0;
     border-right: 1px solid var(--forestGreenLt1);
-    /* flex: auto; */
-    /* height:100px; */
     max-height: 78px;   /* max-height: 78px; compensate for border on auto-scroll */
     overflow: auto;
-  }
-
-  .refreshicon {
-    margin: 20px 7px 0 0;
   }
 
   .row {
@@ -209,11 +197,6 @@ No media query since this is the default in Bootstrap */
 
 /* Extra large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
-  .refreshicon {
-    margin: 20px 15px 0 0;
-  }
-
-
 }
 
 
