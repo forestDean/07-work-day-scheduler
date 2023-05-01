@@ -57,6 +57,11 @@ p:first-of-type {
 
 .hour {
   text-align: left;
+  padding-right : 15px !important;
+}
+
+.noon {
+  /* padding-left: 0px; */
 }
 
 .textBlock{
