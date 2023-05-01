@@ -42,11 +42,19 @@ function timeHighlight() {
             if ($(this).attr("id") != "resetButton"){
                 if($(this).attr("id") === hourFocus ){
                     $(this).children().eq(1).addClass("present")
+                    // Enter notes... instruction
+                    if (!$(this).children().eq(1).val()){
+                        $(this).children().eq(1).text("Enter notes...")
+                    }
                 } else if ($(this).attr("id") > hourFocus) {
                     $(this).children().eq(1).addClass("future")
                 } else {
                     $(this).children().eq(1).addClass("past")
                     $(this).children().eq(1).attr("contenteditable", "false");
+                    // // Enter notes... clear
+                    if ($(this).children().eq(1).text("Enter notes...")){
+                        $(this).children().eq(1).text("")
+                    }
                 }
             }
         });
@@ -56,7 +64,6 @@ function timeHighlight() {
 // https://stackoverflow.com/questions/2398947/jquery-how-to-get-to-a-particular-child-of-a-parent
 function saveText(event) {
         console.log("save: " + event.target);
-    //console.log(this);
     var textID = $(this).parent().attr("id");
         console.log("textID: " + textID);
     var textBlock = $(this).parent().children().eq(1);
@@ -69,8 +76,7 @@ function saveText(event) {
         setTimeout(function(){
             var blockText = localStorage.getItem(JSON.stringify(textID))
             textBlock.text(JSON.parse(blockText));
-        }, 1000)
-       
+        }, 1000)       
     };
 
 
