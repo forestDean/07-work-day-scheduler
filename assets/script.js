@@ -43,7 +43,10 @@ function timeHighlight() {
                 if($(this).attr("id") === hourFocus ){
                     $(this).children().eq(1).addClass("present").removeClass("future");
                     // Enter notes... instruction
-                    if (!$(this).children().eq(1).val()){
+                    //if (!$(this).children().eq(1).val()){
+                    //if ($(this).children().eq(1).text() == ""){
+                    //if ($(this).children().eq(1).val().length == 0){
+                    if ($(this).children().eq(1).text().length == 0){
                         $(this).children().eq(1).text("Enter notes...");
                     }
                 } else if ($(this).attr("id") > hourFocus) {
@@ -52,8 +55,10 @@ function timeHighlight() {
                     $(this).children().eq(1).addClass("past").removeClass("present").removeClass("future");
                     $(this).children().eq(1).attr("contenteditable", "false");
                     // // Enter notes... clear
-                    if ($(this).children().eq(1).text("Enter notes...")){
-                        $(this).children().eq(1).text("")
+                    if ($(this).children().eq(1).text() === "Enter notes..."){
+                        // check if this writes ""
+                        // $(this).children().eq(1).text("")
+                        $(this).children().eq(1).empty()
                     }
                 }
             }
@@ -63,12 +68,9 @@ function timeHighlight() {
 
 // https://stackoverflow.com/questions/2398947/jquery-how-to-get-to-a-particular-child-of-a-parent
 function saveText(event) {
-        console.log("save: " + event.target);
     var textID = $(this).parent().attr("id");
-        console.log("textID: " + textID);
     var textBlock = $(this).parent().children().eq(1);
     var selectText = textBlock.text();
-        console.log(selectText);
 
     localStorage.setItem(JSON.stringify(textID),JSON.stringify(selectText));
     // saved alert
@@ -84,30 +86,25 @@ function saveText(event) {
 function autoSave() {
     $(".textBlock").each(function(){
         var textID = $(this).parent().attr("id");
-            console.log("textID: " + textID);
         var selectText = $(this).parent().children().eq(1).text();
-        
-
+        if (selectText.length != 0) {
         localStorage.setItem(JSON.stringify(textID),JSON.stringify(selectText));
-            console.log("autoSave");
+        }
     })
 }
 
 function clear(event) {
-        console.log("clear: " + event.target);
-        console.log("this: " + this);
-
     var select = $(this).parent().children().eq(1);
-        console.log("select: " + select);
-    $(this).parent().children().eq(1).text("");
-        console.log("this: " + this);
+    // $(this).parent().children().eq(1).text("");
+    $(this).parent().children().eq(1).empty();
     var textID = $(this).parent().attr("id");
     localStorage.removeItem(JSON.stringify(textID));
 }
 
 function reset(event) {
     $(".textBlock").each(function(){
-        $(this).text("");       
+        //$(this).text(""); 
+        $(this).empty();        
     });
     localStorage.clear();
 }

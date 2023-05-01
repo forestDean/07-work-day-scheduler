@@ -44,10 +44,7 @@ p:first-of-type {
   white-space: pre-wrap;
 }
 
-.row {
-  /* white-space: normal;
-  height: 80px;
-  margin-top: 10px; */
+.row {/
   border: 1px solid var(--forestGreenLt1);
   border-radius: 15px;
   height: 200px;
@@ -57,11 +54,6 @@ p:first-of-type {
 
 .hour {
   text-align: left;
-  padding-right : 15px !important;
-}
-
-.noon {
-  /* padding-left: 0px; */
 }
 
 .textBlock{
@@ -177,7 +169,6 @@ No media query since this is the default in Bootstrap */
   }
 
   .hour {
-    
     padding-bottom: 8px;
   }
   
@@ -208,7 +199,7 @@ No media query since this is the default in Bootstrap */
   .textBlock {
     border: 0;
     border-right: 1px solid var(--forestGreenLt1);
-    max-height: 78px;   /* max-height: 78px; compensate for border on auto-scroll */
+    max-height: 78px;
     overflow: auto;
   }
 
@@ -217,8 +208,7 @@ No media query since this is the default in Bootstrap */
     margin-top: 10px;
     border-radius: 15px 5px 5px 15px;
   }
-}
- 
+} 
 
 /* Extra large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
