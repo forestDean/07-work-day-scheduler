@@ -46,10 +46,11 @@ function timeHighlight() {
                     //var thisBlock = $(this).children().eq(1); // threw error
                     thisBlock.addClass("present").removeClass("future");
                     // Enter notes... instruction 
-                    // if ($(this).children().eq(1).text().length == 0){
-                    //     //console.log("empty")
-                    //    $(this).children().eq(1).text("Enter notes...");
-                    // }
+                    var blockText = localStorage.getItem(JSON.stringify(textID));
+                    if (blockText == null) {
+                        //console.log("empty")
+                        $(this).children().eq(1).text("Enter notes...")
+                   }
                 } else if (textID > hourFocus) {
                     thisBlock.addClass("future").removeClass("present").removeClass("past");
 
@@ -83,17 +84,17 @@ function saveText(event) {
 
 
 // autoSave every 2 minutes
-function autoSave() {
-    $(".textBlock").each(function(){
-        var textID = $(this).parent().attr("id");
-        var selectText = $(this).parent().children().eq(1).text();
+// function autoSave() {
+//     $(".textBlock").each(function(){
+//         var textID = $(this).parent().attr("id");
+//         var selectText = $(this).parent().children().eq(1).text();
         
-        if (selectText.length != 0) {
-            //console.log(textID + selectText)
-        localStorage.setItem(JSON.stringify(textID),JSON.stringify(selectText));
-        }
-    })
-}
+//         if (selectText.length != 0) { // this reads "\n" and returns true
+//             console.log(textID + selectText)
+//         localStorage.setItem(JSON.stringify(textID),JSON.stringify(selectText));
+//         }
+//     })
+// }
 
 function clear(event) {
     var select = $(this).parent().children().eq(1);
@@ -120,6 +121,6 @@ resetButton.on('click', reset);
 // set refresh interval
 setInterval(clock, 1000);
 setInterval(timeHighlight, 1000);
-setInterval(autoSave, 120000);
+//setInterval(autoSave, 120000);
 
 
