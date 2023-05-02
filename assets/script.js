@@ -41,7 +41,7 @@ function timeHighlight() {
         $(".row").each(function(){
             var textID = $(this).attr("id");
             var thisBlock = $(this).children().eq(1);
-            // Test if the divId matches hour
+            // Test if the divID matches hour
             if (textID != "resetButton"){
                 if (textID === hourFocus ){
                     thisBlock.addClass("present").removeClass("future");
@@ -50,6 +50,9 @@ function timeHighlight() {
                     if (blockText == null && empty) {
                         $(this).children().eq(1).text("Enter notes...")
                         empty=false;
+                        setTimeout(function(){
+                            empty=true;
+                        }, 359800)  
                    }
                 } else if (textID > hourFocus) {
                     thisBlock.addClass("future").removeClass("present").removeClass("past");
@@ -59,7 +62,7 @@ function timeHighlight() {
                     // Enter notes... clear
                     if (thisBlock.text() === "Enter notes..."){
                         thisBlock.empty() // this leaves "\n" which is autoSaved
-                        localStorage.removeItem(JSON.stringify(textID)); // prevent autoSaved "\n"
+                        localStorage.removeItem(JSON.stringify(textID)); // prevent autoSave "\n"
                     }
                 }
             }
