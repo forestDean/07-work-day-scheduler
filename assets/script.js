@@ -50,9 +50,7 @@ function timeHighlight() {
                     if (blockText == null && empty) {
                         $(this).children().eq(1).text("Enter notes...")
                         empty=false;
-                        setTimeout(function(){
-                            empty=true;
-                        }, 3598000)  
+                        console.log("false: " + empty + moment().format('hh:mm:ss'));
                    }
                 } else if (textID > hourFocus) {
                     thisBlock.addClass("future").removeClass("present").removeClass("past");
