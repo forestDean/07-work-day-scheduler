@@ -11,7 +11,7 @@ It is designed to:
 * Colour-code each timeblock based on past, present, and future.
 * Allow a user to enter an event when they click a timeblock.
 * Save the event in local storage when the `save` button is clicked in that timeblock.
-* Remove the event with a `clea`r button
+* Remove the event with a `clear` button
 * Persist events between refreshes of a page.
 * `AutoSave` after 2 minutes.
 * `AutoReset` at the end of the day.
