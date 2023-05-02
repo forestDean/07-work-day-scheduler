@@ -13,7 +13,6 @@ It is designed to:
 * Save the event in local storage when the `save` button is clicked in that timeblock.
 * Remove the event with a `clear` button
 * Persist events between refreshes of a page.
-* `AutoSave` after 2 minutes.
 * `AutoReset` at the end of the day.
 
 

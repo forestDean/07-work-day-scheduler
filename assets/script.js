@@ -35,7 +35,8 @@ function clock() {
 
 // https://www.tutorialrepublic.com/faq/how-to-loop-through-elements-with-the-same-class-in-jquery.php
 // Time Highlight
-function timeHighlight() {
+var empty=true;
+function timeHighlight() { 
     var hourFocus = moment().format('HH');
         $(".row").each(function(){
             var textID = $(this).attr("id");
@@ -43,13 +44,12 @@ function timeHighlight() {
             // Test if the divId matches hour
             if (textID != "resetButton"){
                 if (textID === hourFocus ){
-                    //var thisBlock = $(this).children().eq(1); // threw error
                     thisBlock.addClass("present").removeClass("future");
                     // Enter notes... instruction 
                     var blockText = localStorage.getItem(JSON.stringify(textID));
-                    if (blockText == null) {
-                        //console.log("empty")
+                    if (blockText == null && empty) {
                         $(this).children().eq(1).text("Enter notes...")
+                        empty=false;
                    }
                 } else if (textID > hourFocus) {
                     thisBlock.addClass("future").removeClass("present").removeClass("past");
@@ -58,7 +58,7 @@ function timeHighlight() {
                     thisBlock.addClass("past").removeClass("present").removeClass("future").attr("contenteditable", "false");
                     // Enter notes... clear
                     if (thisBlock.text() === "Enter notes..."){
-                        thisBlock.empty() // this leaves "\n        " which is autoSaved
+                        thisBlock.empty() // this leaves "\n" which is autoSaved
                         localStorage.removeItem(JSON.stringify(textID)); // prevent autoSaved "\n"
                     }
                 }
@@ -81,7 +81,6 @@ function saveText(event) {
             textBlock.text(JSON.parse(blockText));
         }, 1000)       
     };
-
 
 // autoSave every 2 minutes
 // function autoSave() {
