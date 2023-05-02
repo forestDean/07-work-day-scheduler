@@ -38,27 +38,27 @@ function clock() {
 function timeHighlight() {
     var hourFocus = moment().format('HH');
         $(".row").each(function(){
+            var textID = $(this).attr("id");
+            var thisBlock = $(this).children().eq(1);
             // Test if the divId matches hour
-            if ($(this).attr("id") != "resetButton"){
-                if($(this).attr("id") === hourFocus ){
-                    $(this).children().eq(1).addClass("present").removeClass("future");
-                    // Enter notes... instruction
-                    //if (!$(this).children().eq(1).val()){
-                    //if ($(this).children().eq(1).text() == ""){
-                    //if ($(this).children().eq(1).val().length == 0){
-                    if ($(this).children().eq(1).text().length == 0){
-                        $(this).children().eq(1).text("Enter notes...");
-                    }
-                } else if ($(this).attr("id") > hourFocus) {
-                    $(this).children().eq(1).addClass("future").removeClass("present").removeClass("past");
+            if (textID != "resetButton"){
+                if (textID === hourFocus ){
+                    //var thisBlock = $(this).children().eq(1); // threw error
+                    thisBlock.addClass("present").removeClass("future");
+                    // Enter notes... instruction 
+                    // if ($(this).children().eq(1).text().length == 0){
+                    //     //console.log("empty")
+                    //    $(this).children().eq(1).text("Enter notes...");
+                    // }
+                } else if (textID > hourFocus) {
+                    thisBlock.addClass("future").removeClass("present").removeClass("past");
+
                 } else {
-                    $(this).children().eq(1).addClass("past").removeClass("present").removeClass("future");
-                    $(this).children().eq(1).attr("contenteditable", "false");
-                    // // Enter notes... clear
-                    if ($(this).children().eq(1).text() === "Enter notes..."){
-                        // check if this writes ""
-                        // $(this).children().eq(1).text("")
-                        $(this).children().eq(1).empty()
+                    thisBlock.addClass("past").removeClass("present").removeClass("future").attr("contenteditable", "false");
+                    // Enter notes... clear
+                    if (thisBlock.text() === "Enter notes..."){
+                        thisBlock.empty() // this leaves "\n        " which is autoSaved
+                        localStorage.removeItem(JSON.stringify(textID)); // prevent autoSaved "\n"
                     }
                 }
             }
@@ -87,7 +87,9 @@ function autoSave() {
     $(".textBlock").each(function(){
         var textID = $(this).parent().attr("id");
         var selectText = $(this).parent().children().eq(1).text();
+        
         if (selectText.length != 0) {
+            //console.log(textID + selectText)
         localStorage.setItem(JSON.stringify(textID),JSON.stringify(selectText));
         }
     })

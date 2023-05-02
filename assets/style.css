@@ -44,12 +44,11 @@ p:first-of-type {
   white-space: pre-wrap;
 }
 
-.row {/
+.row {
   border: 1px solid var(--forestGreenLt1);
   border-radius: 15px;
   height: 200px;
-  margin-top: 20px;
-  
+  margin-top: 20px; 
 }
 
 .hour {
@@ -98,7 +97,7 @@ p:first-of-type {
 }
 
 .future {
-  background-color: rgba(85, 107, 47, 0.1);
+  background-color: rgba(85, 107, 47, 0.15);
 }
 
 .rowreset {
