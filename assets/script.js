@@ -52,7 +52,7 @@ function timeHighlight() {
                         empty=false;
                         setTimeout(function(){
                             empty=true;
-                        }, 359800)  
+                        }, 3598000)  
                    }
                 } else if (textID > hourFocus) {
                     thisBlock.addClass("future").removeClass("present").removeClass("past");
